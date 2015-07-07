@@ -1,6 +1,7 @@
 import subprocess
 from ascii_art import AsciiArt
 from house import Material, House
+from fire import Fire
 class Character(object):
     def __init__(self, art_str):
         self.art = AsciiArt(art_str)
@@ -34,6 +35,12 @@ class Pig(Character):
 
     def build_house(self, material):
         self.house = House(material)
+
+    def light_fire(self, message=None):
+        if message != None:
+            return self.say(message).concat(Fire().art, padding=3)
+        else:
+            return self.art.concat(Fire().art, padding=3)
 
 class Wolf(Character):
     def __init__(self):

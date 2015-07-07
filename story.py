@@ -11,6 +11,8 @@ print Pig() * 3
 # Naturally, the first thing to do for a pig in Ye-Old-America was to become a land owner
 pigs = [Pig(), Pig(), Pig()]
 
+# ------------------------------------------------------------------------------------------------------------------------------#
+
 piggy1 = pigs[0]
 man = Man()
 
@@ -40,6 +42,8 @@ print wolf.huff_and_puff(piggy1.house).concat(piggy1.say("NOOOOooooo..."))
 # And ate that little piggy for breakfast.
 print wolf.say("Deliiicioussss...").concat(piggy1.house.art, padding=15)
 
+# ------------------------------------------------------------------------------------------------------------------------------#
+
 # The second pig got news of his brother's untimely demise, and decided he needed to be build an even stronger house.
 piggy2 = pigs[1]
 print man.say("Another Pig? This is the  busiest I been all week!").concat(piggy2.say("Hi, my name is Claude.  My brother got eaten,   and I here wolves are   allergic to sticks. You got any sticks?"), padding=15)
@@ -61,3 +65,5 @@ print wolf.huff_and_puff(piggy2.house).concat(piggy2.say("WWWWHHHhhhhyyyyy..."))
 
 # And ate that little piggy for lunch.
 print wolf.say("Just what I was craving!").concat(piggy2.house.art, padding=15)
+
+# ------------------------------------------------------------------------------------------------------------------------------#
