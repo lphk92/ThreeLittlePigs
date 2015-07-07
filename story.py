@@ -43,14 +43,16 @@ Yea, so these three pigs decided that they wanted to do something with their liv
 Naturally, the first thing to do for a pig in Ye-Old-America was to become a land owner
 """,
 
-str(man.say("What can I do ye fer?").concat(
-    piggy1.say("Hello, my name is Benjamin. I shall become the  overlord of everything  you possess. I demand   all of your straw       ...please"), padding=15)),
+"""
+The first of the Pig Brothers Three went to the local merchant, to buy some building material for his new plot of land.
+""" + str(man.say("What can I do ye fer?").concat(
+          piggy1.say("Hello, my name is Benjamin. I shall become the  overlord of everything  you possess. I demand   all of your straw       ...please"), padding=15)),
 
 str(man.say("Well ain't that just      dandier than a pickle in afish barrel! Here ya go").concat(
     piggy1.say("Thanks! I mean...yea youbetter obey!"), padding=15)),
 
 """
-And the first pig took that straw and build himself a house
+And the first pig took that straw and built himself a house
 """ + str(piggy1.say("Yoshi! It is the perfectbase for my plans!").concat(
           piggy1.house.art, padding=5)),
 
@@ -116,12 +118,14 @@ And ate that little piggy for lunch.
           piggy2.house.art, padding=15)),
 
 """
-The third pig, the last of his line, knew that he most go toe the most drastic measures to protect his family line
+The third pig, the last of his line, knew that he most go to the most drastic measures to protect his family line
 """ + str(man.say("Please tell me your the   last! I tain't got almost nothin' left!").concat(
-          piggy3.say("I am the last who       survives my line, thuslymy house must be the    strongest. Will you helpme good sir?"), padding=15)),
+          piggy3.say("I be Dameon, last who       survives my line, thuslymy house must be the    strongest. Will you helpme good sir?"), padding=15)),
 
-str(man.say("Well shucks, here's some  good 'ole brick").concat(
-    piggy3.say("You shall be sung of in the legends of my heirs!"), padding=15)),
+"""
+And though he was tired by now, the man did not want ALL of the pigs to die.
+""" + str(man.say("Well shucks, here's some  good 'ole brick").concat(
+          piggy3.say("You shall be sung of in the legends of my heirs!"), padding=15)),
 
 """
 And the third big built a mighty fortress of the brick
@@ -150,11 +154,11 @@ The wolf was furious! He had never failed before!
           piggy3.say("I bite my thumb at you!"))),
 
 """
-In his rage, the wolf decided he would entre through the chimney, and get the piggy from the inside!
+In his rage, the wolf decided he would enter through the chimney, and get the piggy from the inside!
 """ + str(wolf.say("If I can't get in from the front, I'll attack from above!")),
 
 """
-Put this big was smart, and suspected such an assault. So he lit a fire under the chimney, to catch the wolf in a trap
+Put this pig was smart, and suspected such an assault. So he lit a fire under the chimney, ready to thwart his rival.
 """ + str(piggy3.light_wolf_on_fire("YOU SHALL NOT PASS!", "NOOOOOO")),
 
 """
@@ -170,9 +174,3 @@ And lived happily ever after
 "The End"
 
 ]
-
-book = StoryBook("The Three Little Pigs")
-
-while book.curr_page < len(book.pages) - 1:
-    book.turn_page()
-
