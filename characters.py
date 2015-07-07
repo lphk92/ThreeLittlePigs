@@ -1,7 +1,6 @@
 import subprocess
 from ascii_art import AsciiArt
 from house import Material, House
-from fire import Fire
 class Character(object):
     def __init__(self, art_str):
         self.art = AsciiArt(art_str)
@@ -11,15 +10,16 @@ class Character(object):
 
     def say(self, message):
         result = ""
-        message_lines = [message[i : i + self.art.width] for i in range(0, len(message), self.art.width)]
-        w = min(self.art.width, len(message))
-        result += " " + "-" * (w + 2) + "\n"
-        for m in message_lines:
-            if len(m) < w:
-                m += ' ' * (w - len(m))
-            result += "| " + m + " |" + "\n"
-        result += " " + "-" * (w + 2) + "\n"
-        result += " " * (w/2) + "|" + "\n"
+        if len(message) > 0:
+            message_lines = [message[i : i + self.art.width] for i in range(0, len(message), self.art.width)]
+            w = min(self.art.width, len(message))
+            result += " " + "-" * (w + 2) + "\n"
+            for m in message_lines:
+                if len(m) < w:
+                    m += ' ' * (w - len(m))
+                result += "| " + m + " |" + "\n"
+            result += " " + "-" * (w + 2) + "\n"
+            result += " " * (w/2) + "|" + "\n"
         result += str(self.art)
         return AsciiArt(result)
 
@@ -36,11 +36,8 @@ class Pig(Character):
     def build_house(self, material):
         self.house = House(material)
 
-    def light_fire(self, message=None):
-        if message != None:
-            return self.say(message).concat(Fire().art, padding=3)
-        else:
-            return self.art.concat(Fire().art, padding=3)
+    def light_wolf_on_fire(self, pigMessage="", wolfMessage=""):
+            return self.say(pigMessage).concat(FlamingWolf().say(wolfMessage), padding=3)
 
 class Wolf(Character):
     def __init__(self):
@@ -55,9 +52,17 @@ class Wolf(Character):
                 house.destroy()
         return result
 
+class FlamingWolf(Character):
+    def __init__(self):
+        Character.__init__(self, flaming_wolf_str)
+
 class Man(Character):
     def __init__(self):
         Character.__init__(self, man_str)
+
+class Sun(Character):
+    def __init__(self):
+        Character.__init__(self, sun_str)
 
 pig_str = """
     _,--.       ,--._
@@ -124,4 +129,45 @@ man_str = """
        /``"--._ \\/`\\
       /        \\|  /`--.
     /```""--..__;.'     `\\
+"""
+
+flaming_wolf_str = """
+                     /\\__/\\
+                    /      \\
+                   |  -  -  |
+         __________| \\     /|
+       /              \\ T / |
+     /                      |
+    |  ||     |    |       /
+    |  ||    /______\\     / |
+    |  | \\  |  /     \\   /  |
+     \\/   | |\\ \\      | | \\ \\
+          | | \\ \\     | |  \\ \\
+          | |  \\ \\    | |   \\ \\
+          '''   '''   '''    '''
+            (  .      )
+        )           (              )
+              .  '   .   '  .  '  .
+     (    , )       (.   )  (   ',    )
+      .' ) ( . )    ,  ( ,     )   ( .
+   ). , ( .   (  ) ( , ')  .' (  ,    )
+  (_,) . ), ) _) _,')  (, ) '. )  ,. (' )
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""
+
+sun_str = """
+        \\     (      /
+   `.    \\     )    /    .'
+     `.   \\   (    /   .'
+       `.  .-''''-.  .'
+ `~._    .'/_    _\\`.    _.~'
+     `~ /  / \\  / \\  \\ ~'
+_ _ _ _|  _\\O/  \\O/_  |_ _ _ _
+       | (_)  /\\  (_) |
+    _.~ \\  \\      /  / ~._
+ .~'     `. `.__.' .'     `~.
+       .'  `-,,,,-'  `.
+     .'   /    )   \\   `.
+   .'    /    (     \\    `.
+        /      )     \\
 """

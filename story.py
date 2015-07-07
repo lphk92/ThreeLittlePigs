@@ -1,5 +1,7 @@
-from characters import Pig, Wolf, Man
+# -*- coding: utf8 -*-
+from characters import Pig, Wolf, Man, Sun
 from house import Material, House
+from ascii_art import AsciiArt
 # Once upon a time, when pigs still could rhyme
 # There was a pig
 print Pig()
@@ -67,3 +69,38 @@ print wolf.huff_and_puff(piggy2.house).concat(piggy2.say("WWWWHHHhhhhyyyyy..."))
 print wolf.say("Just what I was craving!").concat(piggy2.house.art, padding=15)
 
 # ------------------------------------------------------------------------------------------------------------------------------#
+
+# The third pig, the last of his line, knew that he most go toe the most drastic measures to protect his family line
+piggy3 = pigs[2]
+print man.say("Please tell me your the   last! I tain't got almost nothin' left!").concat(piggy3.say("I am the last who       survives my line, thuslymy house must be the    strongest. Will you helpme good sir?"), padding=15)
+
+print man.say("Well shucks, here's some  good 'ole brick").concat(piggy3.say("You shall be sung of in the legends of my heirs!"), padding=15)
+
+# And the third big built a mighty fortress of the brick
+piggy3.build_house(Material.BRICK)
+print piggy3.say("None shall pass!").concat(piggy3.house.art, padding=5)
+
+# The Big Bad Wolf saw this house, and came over to pay a house-warming visit...
+print wolf.say("Little pig, Little pig, let me    come in").concat(piggy3.house.art, padding=15).concat(piggy3.say("Naught by mine hair uponmy chinny chin chin!"))
+
+print wolf.say("Then I'll huff and puff and blow  your house in!").concat(piggy3.house.art, padding=15).concat(piggy3.say("Bring your worst, demon!"))
+
+# So he huffed, and he puffed...but couldn't blow his house in!
+print wolf.huff_and_puff(piggy3.house).concat(piggy3.say("Huzzah!"))
+
+# The wolf was furious! He had never failed before!
+print wolf.say("What gives!? It's dinner time I   can't get in!").concat(piggy3.house.art, padding=15).concat(piggy3.say("I bite my thumb at you!"))
+
+# In his rage, the wolf decided he would entre through the chimney, and get the piggy from the inside!
+print wolf.say("If I can't get in from the front, I'll attack from above!")
+
+# Put this big was smart, and suspected such an assault. So he lit a fire under the chimney, to catch the wolf in a trap
+print piggy3.light_wolf_on_fire("YOU SHALL NOT PASS!", "NOOOOOO")
+
+# And so it was the third piggy who ate the wolf!
+print piggy3.say("Twas a feast fit for a  king!")
+
+# And lived happily ever after
+print piggy3.house.art.concat(piggy3.art).concat(Sun().art)
+
+print "The End"
