@@ -36,9 +36,16 @@ class Wolf(Character):
     def __init__(self):
         Character.__init__(self, wolf_str)
 
-    def huff_and_puff(self):
+    def huff_and_puff(self, house=None):
         wind = AsciiArt(wind_str)
-        print self.art.concat(wind, padding=3).concat(wind)
+        result = self.art.concat(wind, padding=3).concat(wind)
+        if house != None:
+            result = result.concat(house.art, padding=3)
+        return result
+
+class Man(Character):
+    def __init__(self):
+        Character.__init__(self, man_str)
 
 pig_str = """
     _,--.       ,--._
@@ -87,3 +94,20 @@ wind_str = """
 ~   ~   ~
 """
 
+man_str = """
+           ,/////\\\\,
+         ,/////////\\\\\\
+       ,///////////\\\\\\\\
+       ////  __     _\\\\
+       /// //  \\  //  \\
+       /,  \\\\_O/  \\\\_O/
+       \\_         \\   |
+         \\      ,__>  /
+         |\\   ,____  /
+         | \\   \\__| /
+         |  '._____/
+         |      |
+       /``"--._ \\/`\\
+      /        \\|  /`--.
+    /```""--..__;.'     `\\
+"""

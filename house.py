@@ -1,3 +1,4 @@
+from ascii_art import AsciiArt
 class Material:
     STRAW = 1
     STICK = 2
@@ -6,14 +7,14 @@ class Material:
 class House(object):
     def __init__(self, material):
         if material == Material.STRAW:
-            self.pic = straw_str
+            self.art = AsciiArt(straw_str)
         if material == Material.STICK:
-            self.pic = stick_str
+            self.art = AsciiArt(stick_str)
         if material == Material.BRICK:
-            self.pic = brick_str
+            self.art = AsciiArt(brick_str)
 
     def __str__(self):
-        return self.pic
+        return str(self.art)
 
 straw_str = """
     ______________________
