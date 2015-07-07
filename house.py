@@ -1,3 +1,20 @@
+class Material:
+    STRAW = 1
+    STICK = 2
+    BRICK = 3
+
+class House(object):
+    def __init__(self, material):
+        if material == Material.STRAW:
+            self.pic = straw_str
+        if material == Material.STICK:
+            self.pic = stick_str
+        if material == Material.BRICK:
+            self.pic = brick_str
+
+    def __str__(self):
+        return self.pic
+
 straw_str = """
     ______________________
    /                       \\
@@ -51,20 +68,3 @@ brick_str = """
  #####|       |###############
  #####|       |###############
 """
-
-class Material:
-    STRAW = 1
-    STICK = 2
-    BRICK = 3
-
-class House(object):
-    def __init__(self, material):
-        if material == Material.STRAW:
-            self.pic = straw_str
-        if material == Material.STICK:
-            self.pic = stick_str
-        if material == Material.BRICK:
-            self.pic = brick_str
-
-    def __str__(self):
-        return self.pic
