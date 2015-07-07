@@ -1,13 +1,3 @@
-cow_file_top = """
-$the_cow = <<EOC
-   $thoughts
-     $thoughts
-"""
-
-cow_file_bottom = """
-EOC
-"""
-
 import subprocess
 from ascii_art import AsciiArt
 class Character(object):
@@ -18,9 +8,18 @@ class Character(object):
         return str(self.art)
 
     def say(self, message):
-        with open('/tmp/curr.cow', 'w') as f:
-            f.write(cow_file_top + str(self.art).replace("\\", "\\\\") + cow_file_bottom)
-        subprocess.call(['cowthink', '-f', '/tmp/curr.cow', '\"{}\"'.format(message)])
+        result = ""
+        message_lines = [message[i : i + self.art.width] for i in range(0, len(message), self.art.width)]
+        w = min(self.art.width, len(message))
+        result += " " + "-" * (w + 2) + "\n"
+        for m in message_lines:
+            if len(m) < w:
+                m += ' ' * (w - len(m))
+            result += "| " + m + " |" + "\n"
+        result += " " + "-" * (w + 2) + "\n"
+        result += " " * (w/2) + "|" + "\n"
+        result += str(self.art)
+        return AsciiArt(result)
 
 class Pig(Character):
     def __init__(self):
