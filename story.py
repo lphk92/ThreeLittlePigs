@@ -20,16 +20,16 @@ print man.say("Well ain't that just      dandier than a pickle in afish barrel! 
 
 # And the first pig took that straw and build himself a house
 piggy1.build_house(Material.STRAW)
-
 print piggy1.say("Yoshi! It is the perfectbase for my plans!").concat(piggy1.house.art, padding=5)
 
-# However, there was a wolf that noticed the piggy's lovely new home
+# However, there was a wolf in the forest that noticed the piggy's lovely new home
 wolf = Wolf()
 
 # Not just ANY wolf, a BIG BAD WOLF!
 wolf.description = "Big Bad"
 print wolf
 
+# And he came up tot he piggy's house
 print wolf.say("Little pig, Little pig, let me    come in").concat(piggy1.house.art, padding=15).concat(piggy1.say("Not by the hair on my   chinny chin chin!"))
 
 print wolf.say("Then I'll huff and puff and blow  your house in!").concat(piggy1.house.art, padding=15).concat(piggy1.say("I'd like to see you try fool!"))
@@ -39,3 +39,25 @@ print wolf.huff_and_puff(piggy1.house).concat(piggy1.say("NOOOOooooo..."))
 
 # And ate that little piggy for breakfast.
 print wolf.say("Deliiicioussss...").concat(piggy1.house.art, padding=15)
+
+# The second pig got news of his brother's untimely demise, and decided he needed to be build an even stronger house.
+piggy2 = pigs[1]
+print man.say("Another Pig? This is the  busiest I been all week!").concat(piggy2.say("Hi, my name is Claude.  My brother got eaten,   and I here wolves are   allergic to sticks. You got any sticks?"), padding=15)
+
+# The man had sympathy for his story, and lent his aid!
+print man.say("I had a brother once...   Anywho, here's the sticks!").concat(piggy2.say("Thanks! Wish me luck!"), padding=15)
+
+# And the first pig took that straw and build himself a house
+piggy2.build_house(Material.STICK)
+print piggy1.say("This will keep me safe!").concat(piggy2.house.art, padding=5)
+
+# The Big Bad Wolf saw this house, and came over to pay a house-warming visit...
+print wolf.say("Little pig, Little pig, let me    come in").concat(piggy2.house.art, padding=15).concat(piggy2.say("Not by the hair on my   chinny chin chin!"))
+
+print wolf.say("Then I'll huff and puff and blow  your house in!").concat(piggy2.house.art, padding=15).concat(piggy2.say("Not this time!"))
+
+# So he huffed, and he puffed and he blew his house in...
+print wolf.huff_and_puff(piggy2.house).concat(piggy2.say("WWWWHHHhhhhyyyyy..."))
+
+# And ate that little piggy for lunch.
+print wolf.say("Just what I was craving!").concat(piggy2.house.art, padding=15)
