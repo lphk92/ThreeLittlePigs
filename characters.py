@@ -27,10 +27,10 @@ class Pig(Character):
         Character.__init__(self, pig_str)
 
     def __mul__(self, value):
-        pig_list = []
-        for i in range(0, value):
-            pig_list.append(Pig())
-        return pig_list
+        result = Pig().art
+        for i in range(1, value):
+            result = result.concat(Pig().art)
+        return result
 
 class Wolf(Character):
     def __init__(self):
