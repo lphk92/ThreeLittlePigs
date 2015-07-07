@@ -1,5 +1,6 @@
 import subprocess
 from ascii_art import AsciiArt
+from house import Material, House
 class Character(object):
     def __init__(self, art_str):
         self.art = AsciiArt(art_str)
@@ -30,6 +31,9 @@ class Pig(Character):
         for i in range(1, value):
             result = result.concat(Pig().art)
         return result
+
+    def build_house(self, material):
+        self.house = House(material)
 
 class Wolf(Character):
     def __init__(self):
