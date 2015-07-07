@@ -18,12 +18,13 @@ pig_str = """
 """
 
 import subprocess
+from ascii_art import AsciiArt
 class Pig(object):
     def __init__(self):
-        pass
+        self.art = AsciiArt(pig_str)
 
     def __str__(self):
-        return pig_str
+        return str(self.art)
 
     def __mul__(self, value):
         pig_list = []
