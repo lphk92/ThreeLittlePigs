@@ -38,3 +38,4 @@ print wolf.say("Then I'll huff and puff and blow  your house in!").concat(piggy1
 print wolf.huff_and_puff(piggy1.house).concat(piggy1.say("NOOOOooooo..."))
 
 # And ate that little piggy for breakfast.
+print wolf.say("Deliiicioussss...").concat(piggy1.house.art, padding=15)

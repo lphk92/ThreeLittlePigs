@@ -44,6 +44,8 @@ class Wolf(Character):
         result = self.art.concat(wind, padding=3).concat(wind)
         if house != None:
             result = result.concat(house.art, padding=3)
+            if house.material != Material.BRICK:
+                house.destroy()
         return result
 
 class Man(Character):
@@ -86,6 +88,8 @@ wolf_str = """
 """
 
 wind_str = """
+~   ~   ~
+  ~   ~   ~
 ~   ~   ~
   ~   ~   ~
 ~   ~   ~

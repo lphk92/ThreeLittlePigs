@@ -6,6 +6,7 @@ class Material:
 
 class House(object):
     def __init__(self, material):
+        self.material = material
         if material == Material.STRAW:
             self.art = AsciiArt(straw_str)
         if material == Material.STICK:
@@ -15,6 +16,9 @@ class House(object):
 
     def __str__(self):
         return str(self.art)
+
+    def destroy(self):
+        self.art = AsciiArt(rubble_str)
 
 straw_str = """
     ______________________
@@ -68,4 +72,24 @@ brick_str = """
  #####|     O |###############
  #####|       |###############
  #####|       |###############
+"""
+
+rubble_str = """
+
+
+
+
+
+
+
+
+
+
+
+
+    ______________________
+   / Here Was Once a House \\
+  /((*&^$@@!#%^#%@@#%@##@!!~\\
+ /$^#@#%@#%^#%@@#%@#((*&^$@@!\\
+/$^#@#%@#%^#%@@#%@#((*&^$@@!#^\\
 """
