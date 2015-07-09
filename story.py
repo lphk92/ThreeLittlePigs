@@ -16,6 +16,9 @@ class StoryBook(object):
         if self.curr_page < len(self.pages):
             print self.pages[self.curr_page]
 
+    def close(self):
+        pass
+
 # Setup
 pigs = [Pig(), Pig(), Pig()]
 piggy1 = pigs[0]
@@ -86,14 +89,14 @@ And ate that little piggy for breakfast.
 """
 The second pig got news of his brother's untimely demise, and decided he needed to be build an even stronger house.
 """ + str(man.say("Another Pig? This is the  busiest I been all week!").concat(
-          piggy2.say("Hi, my name is Claude.  My brother got eaten,   and I here wolves are   allergic to sticks. You got any sticks?"), padding=15)),
+          piggy2.say("Hi, my name is Claude.  My brother got eaten,   and I hear wolves are   allergic to sticks. You got any sticks?"), padding=15)),
 
 """
 The man had sympathy for his story, and lent his aid!
 """ + str(man.say("I had a brother once...   Anywho, here's the sticks!").concat(piggy2.say("Thanks! Wish me luck!"), padding=15)),
 
 """
-And the first pig took that straw and build himself a house
+And the first pig took those sticks and built himself a house
 """ + str(piggy1.say("This will keep me safe!").concat(
           piggy2.house.art, padding=5)),
 
@@ -120,7 +123,7 @@ And ate that little piggy for lunch.
 """
 The third pig, the last of his line, knew that he most go to the most drastic measures to protect his family line
 """ + str(man.say("Please tell me your the   last! I tain't got almost nothin' left!").concat(
-          piggy3.say("I be Dameon, last who       survives my line, thuslymy house must be the    strongest. Will you helpme good sir?"), padding=15)),
+          piggy3.say("I be Dameon, last who   survives my line, thuslymy house must be the    strongest. Will you helpme good sir?"), padding=15)),
 
 """
 And though he was tired by now, the man did not want ALL of the pigs to die.
@@ -128,7 +131,7 @@ And though he was tired by now, the man did not want ALL of the pigs to die.
           piggy3.say("You shall be sung of in the legends of my heirs!"), padding=15)),
 
 """
-And the third big built a mighty fortress of the brick
+And the third pig built a mighty fortress out of the brick
 """ + str(piggy3.say("None shall pass!").concat(
           piggy3.house.art, padding=5)),
 
@@ -158,7 +161,7 @@ In his rage, the wolf decided he would enter through the chimney, and get the pi
 """ + str(wolf.say("If I can't get in from the front, I'll attack from above!")),
 
 """
-Put this pig was smart, and suspected such an assault. So he lit a fire under the chimney, ready to thwart his rival.
+But this pig was smart, and suspected such an assault. So he lit a fire under the chimney, ready to thwart his rival.
 """ + str(piggy3.light_wolf_on_fire("YOU SHALL NOT PASS!", "NOOOOOO")),
 
 """
